@@ -5,9 +5,15 @@ $(function() {
     let input = $("#expString").val().split(" ")
     let result = expEval(input)
     console.log(result)
+    appendResult(result)
   });
 
 });
+
+function appendResult(answer) {
+  $('#expAnswer').remove()
+  $('#expInput').append(`<div id="expAnswer">Your expression evaluated into: ${answer}</div>`)
+}
 
 
 function expEval(arrOfExp) {
@@ -20,7 +26,6 @@ function expEval(arrOfExp) {
 
  // it's conceptually easier for me to work on this array from the end to the beginning
   for (let i = arrOfExp.length; i >= 0; i--) {
-    console.log(numStack)
 
     let a = parseInt(numStack.pop())
     let b = parseInt(numStack.pop())
@@ -34,7 +39,5 @@ function expEval(arrOfExp) {
       numStack.push(b, a, arrOfExp[i])
     }
   }
-
-  console.log(numStack)
   return numStack.pop()
 }
