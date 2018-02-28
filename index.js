@@ -21,14 +21,14 @@ function expEval(arrOfExp) {
   let numStack = []
 
   if (arrOfExp.length === 1) {
-    return arrOfExp[0]
+    return parseFloat(arrOfExp[0])
   }
 
  // it's conceptually easier for me to work on this array from the end to the beginning
   for (let i = arrOfExp.length; i >= 0; i--) {
 
-    let a = parseInt(numStack.pop())
-    let b = parseInt(numStack.pop())
+    let a = parseFloat(numStack.pop())
+    let b = parseFloat(numStack.pop())
     if (arrOfExp[i] === "+") {
       numStack.push(b + a)
     }
