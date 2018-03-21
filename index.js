@@ -39,5 +39,15 @@ function expEval(arrOfExp) {
       numStack.push(b, a, arrOfExp[i])
     }
   }
+
+  // this is a way to filter out the NaN's at the end
+  // let endLength = numStack.length
+  //
+  // for (let i = 0; i < endLength; i++) {
+  //   console.log(numStack)
+  //   if (isNaN(numStack[0])) {
+  //     numStack.splice(0, 1)
+  //   }
+  // }
   return numStack.pop()
 }
